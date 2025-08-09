@@ -10,37 +10,37 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-white">
             <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Political Influence,
-              <span className="text-primary-glow"> Authentically Delivered</span>
+              Amplify Your PAC's Voice
+              <span className="text-patriot-red"> Through Authentic Influence</span>
             </h1>
             
             <p className="text-xl mb-8 text-white/90 leading-relaxed">
-              Connect campaigns and advocacy groups with vetted micro-influencers. 
-              Launch grassroots digital promotions with built-in FEC/FTC compliance 
-              and transparent, bipartisan accessibility.
+              The premier platform for Political Action Committees to connect with 
+              verified micro-influencers. Execute compliant grassroots campaigns 
+              that drive voter engagement and maximize your political impact.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="lg" className="text-lg px-8 py-4">
-                Get Started Free
+              <Button variant="pulse" size="lg" className="text-lg px-8 py-4">
+                Launch Your PAC Campaign
               </Button>
               <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-white/30 text-white hover:bg-white/10">
-                Watch Demo
+                View Success Stories
               </Button>
             </div>
             
             <div className="mt-12 flex items-center gap-8 text-white/80">
               <div className="text-center">
-                <div className="text-2xl font-bold text-white">500+</div>
-                <div className="text-sm">Vetted Influencers</div>
+                <div className="text-2xl font-bold text-patriot-red">200+</div>
+                <div className="text-sm">Active PACs</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-white">50M+</div>
-                <div className="text-sm">Audience Reach</div>
+                <div className="text-2xl font-bold text-patriot-red">75M+</div>
+                <div className="text-sm">Voter Impressions</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-white">99%</div>
-                <div className="text-sm">Compliance Rate</div>
+                <div className="text-2xl font-bold text-patriot-red">100%</div>
+                <div className="text-sm">FEC Compliant</div>
               </div>
             </div>
           </div>

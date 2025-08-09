@@ -22,10 +22,12 @@ export default {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-hero': 'var(--gradient-hero)',
 				'gradient-card': 'var(--gradient-card)',
+				'gradient-patriot': 'var(--gradient-patriot)',
 			},
 			boxShadow: {
 				'elegant': 'var(--shadow-elegant)',
 				'card': 'var(--shadow-card)',
+				'red': 'var(--shadow-red)',
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -38,6 +40,8 @@ export default {
 					foreground: 'hsl(var(--primary-foreground))',
 					glow: 'hsl(var(--primary-glow))'
 				},
+				'patriot-blue': 'hsl(var(--patriot-blue))',
+				'patriot-red': 'hsl(var(--patriot-red))',
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'

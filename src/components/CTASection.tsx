@@ -7,19 +7,19 @@ const CTASection = () => {
       
       <div className="container mx-auto px-6 relative z-10 text-center">
         <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-          Ready to Transform Your Political Campaigns?
+          Ready to Amplify Your PAC's Impact?
         </h2>
         <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-          Join the future of political influence marketing. Connect with authentic voices, 
-          ensure compliance, and drive real engagement with your message.
+          Join 200+ Political Action Committees using PoliPulse to reach voters 
+          authentically while maintaining full FEC compliance.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Button variant="hero" size="lg" className="text-lg px-8 py-4 bg-white text-primary hover:bg-white/90">
-            Get Started Free
+          <Button variant="pulse" size="lg" className="text-lg px-8 py-4 bg-white text-primary hover:bg-white/90">
+            Start PAC Campaign
           </Button>
           <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-white/30 text-white hover:bg-white/10">
-            Schedule Demo
+            Book Strategy Call
           </Button>
         </div>
         

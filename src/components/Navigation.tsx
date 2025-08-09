@@ -17,17 +17,17 @@ const Navigation = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-foreground hover:text-primary transition-colors">
-              Features
+            <a href="#solutions" className="text-foreground hover:text-patriot-red transition-colors font-medium">
+              Solutions
             </a>
-            <a href="#how-it-works" className="text-foreground hover:text-primary transition-colors">
-              How it Works
+            <a href="#compliance" className="text-foreground hover:text-patriot-red transition-colors font-medium">
+              Compliance
             </a>
-            <a href="#for-campaigns" className="text-foreground hover:text-primary transition-colors">
-              For Campaigns
+            <a href="#for-pacs" className="text-foreground hover:text-patriot-red transition-colors font-medium">
+              For PACs
             </a>
-            <a href="#for-influencers" className="text-foreground hover:text-primary transition-colors">
-              For Influencers
+            <a href="#influencers" className="text-foreground hover:text-patriot-red transition-colors font-medium">
+              Influencer Network
             </a>
           </div>
           
@@ -35,8 +35,8 @@ const Navigation = () => {
             <Button variant="ghost">
               Sign In
             </Button>
-            <Button variant="professional">
-              Get Started
+            <Button variant="cta">
+              Launch Campaign
             </Button>
           </div>
           

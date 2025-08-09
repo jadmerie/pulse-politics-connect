@@ -8,11 +8,11 @@ const DualAudienceSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4">
-            Built for Campaigns & Influencers
+            Trusted by <span className="text-patriot-red">PACs</span> & <span className="text-patriot-blue">Political Influencers</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Whether you're running a campaign or building your influence, PoliPulse provides 
-            the tools and network you need to succeed.
+            The only platform specifically designed for Political Action Committee 
+            campaigns and politically-engaged content creators.
           </p>
         </div>
         
@@ -20,80 +20,80 @@ const DualAudienceSection = () => {
           {/* For Campaigns */}
           <Card className="p-12 bg-gradient-card border-0 shadow-card">
             <div className="flex items-center mb-8">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4">
-                <Building2 className="w-6 h-6 text-primary-foreground" />
+              <div className="w-12 h-12 bg-patriot-red rounded-lg flex items-center justify-center mr-4">
+                <Building2 className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground">For Campaigns & Organizations</h3>
+              <h3 className="text-2xl font-bold text-foreground">For Political Action Committees</h3>
             </div>
             
             <div className="space-y-6 mb-8">
               <div className="flex items-start">
-                <Target className="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0" />
+                <Target className="w-5 h-5 text-patriot-red mt-1 mr-3 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">Targeted Reach</h4>
-                  <p className="text-muted-foreground text-sm">Connect with specific demographics and geographic regions through verified influencer networks.</p>
+                  <h4 className="font-semibold text-foreground mb-1">District-Level Targeting</h4>
+                  <p className="text-muted-foreground text-sm">Reach voters in specific congressional districts with influencers who have authentic local followings and political credibility.</p>
                 </div>
               </div>
               
               <div className="flex items-start">
-                <Shield className="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0" />
+                <Shield className="w-5 h-5 text-patriot-red mt-1 mr-3 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">Compliance Assurance</h4>
-                  <p className="text-muted-foreground text-sm">Automatic FEC/FTC compliance tracking with transparent reporting and disclosure management.</p>
+                  <h4 className="font-semibold text-foreground mb-1">FEC Compliance Built-In</h4>
+                  <p className="text-muted-foreground text-sm">Automated expenditure tracking, disclosure management, and compliance reporting specifically designed for PAC requirements.</p>
                 </div>
               </div>
               
               <div className="flex items-start">
-                <DollarSign className="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0" />
+                <DollarSign className="w-5 h-5 text-patriot-red mt-1 mr-3 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">Cost-Effective</h4>
-                  <p className="text-muted-foreground text-sm">Reach more voters with authentic grassroots messaging at a fraction of traditional advertising costs.</p>
+                  <h4 className="font-semibold text-foreground mb-1">Maximize ROI</h4>
+                  <p className="text-muted-foreground text-sm">Achieve higher voter engagement rates than traditional media at lower cost per impression with authentic grassroots messaging.</p>
                 </div>
               </div>
             </div>
             
-            <Button variant="professional" size="lg" className="w-full">
-              Start Your Campaign
+            <Button variant="cta" size="lg" className="w-full">
+              Launch PAC Campaign
             </Button>
           </Card>
           
           {/* For Influencers */}
           <Card className="p-12 bg-gradient-card border-0 shadow-card">
             <div className="flex items-center mb-8">
-              <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-4">
-                <Users2 className="w-6 h-6 text-accent-foreground" />
+              <div className="w-12 h-12 bg-patriot-blue rounded-lg flex items-center justify-center mr-4">
+                <Users2 className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground">For Political Influencers</h3>
+              <h3 className="text-2xl font-bold text-foreground">For Political Content Creators</h3>
             </div>
             
             <div className="space-y-6 mb-8">
               <div className="flex items-start">
-                <Zap className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                <Zap className="w-5 h-5 text-patriot-blue mt-1 mr-3 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">Monetize Your Voice</h4>
-                  <p className="text-muted-foreground text-sm">Connect with campaigns and causes that align with your values and earn from authentic endorsements.</p>
+                  <h4 className="font-semibold text-foreground mb-1">Premium Political Partnerships</h4>
+                  <p className="text-muted-foreground text-sm">Partner with established PACs and political organizations for high-value campaigns that align with your political beliefs.</p>
                 </div>
               </div>
               
               <div className="flex items-start">
-                <Shield className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                <Shield className="w-5 h-5 text-patriot-blue mt-1 mr-3 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">Stay Compliant</h4>
-                  <p className="text-muted-foreground text-sm">Built-in tools ensure all your political content meets FEC and FTC disclosure requirements.</p>
+                  <h4 className="font-semibold text-foreground mb-1">Compliance Protection</h4>
+                  <p className="text-muted-foreground text-sm">Automated disclosure generation and FEC compliance tracking protects you while you focus on creating authentic political content.</p>
                 </div>
               </div>
               
               <div className="flex items-start">
-                <Target className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                <Target className="w-5 h-5 text-patriot-blue mt-1 mr-3 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">Quality Partnerships</h4>
-                  <p className="text-muted-foreground text-sm">Work with vetted campaigns and organizations while maintaining your authentic voice and brand.</p>
+                  <h4 className="font-semibold text-foreground mb-1">Verified Opportunities</h4>
+                  <p className="text-muted-foreground text-sm">Access to thoroughly vetted PAC partnerships with transparent payment terms and clear campaign objectives.</p>
                 </div>
               </div>
             </div>
             
-            <Button variant="cta" size="lg" className="w-full">
-              Join as Influencer
+            <Button variant="professional" size="lg" className="w-full">
+              Join Creator Network
             </Button>
           </Card>
         </div>
