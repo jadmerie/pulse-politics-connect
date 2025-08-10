@@ -54,7 +54,7 @@ const FeaturesSection = () => {
             return (
               <Card key={index} className="p-8 bg-gradient-card border-0 shadow-card hover:shadow-red transition-all duration-300 group">
                 <div className="w-12 h-12 bg-patriot-red rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-6 h-6 text-white" />
+                  <Icon className="w-6 h-6 text-foreground" />
                 </div>
                 <h3 className="text-xl font-semibold text-patriot-blue mb-4">
                   {feature.title}
