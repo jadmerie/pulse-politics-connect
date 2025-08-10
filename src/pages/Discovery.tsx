@@ -3,10 +3,17 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Filter, Search } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import creator1 from "@/assets/avatars/creator1.jpg";
 import creator2 from "@/assets/avatars/creator2.jpg";
 import creator3 from "@/assets/avatars/creator3.jpg";
 import creator4 from "@/assets/avatars/creator4.jpg";
+
+const partyStyles: Record<string, string> = {
+  Democrat: "bg-patriot-blue text-primary-foreground",
+  Republican: "bg-patriot-red text-primary-foreground",
+  Independent: "bg-secondary text-foreground",
+};
 
 const creators = [
   {
@@ -18,6 +25,7 @@ const creators = [
     bio: "South Florida creator covering climate resilience and civic participation.",
     avatar: creator1,
     platforms: ["TikTok", "Instagram"],
+    party: "Democrat",
   },
   {
     name: "Jared Kim",
@@ -28,6 +36,7 @@ const creators = [
     bio: "Community organizer sharing GOTV resources and policy explainers.",
     avatar: creator2,
     platforms: ["Instagram", "YouTube"],
+    party: "Independent",
   },
   {
     name: "Aisha Rahman",
@@ -38,6 +47,7 @@ const creators = [
     bio: "Student advocate creating short-form videos on education equity.",
     avatar: creator3,
     platforms: ["TikTok"],
+    party: "Republican",
   },
   {
     name: "Diego Ortega",
@@ -48,6 +58,7 @@ const creators = [
     bio: "Bilingual content on local issues and early voting info.",
     avatar: creator4,
     platforms: ["TikTok", "Instagram"],
+    party: "Democrat",
   },
 ];
 
@@ -115,7 +126,12 @@ const Discovery = () => {
                         <p className="text-xs text-muted-foreground">{c.location}</p>
                       </div>
                     </div>
-                    <span className="text-xs text-muted-foreground">{c.tags}</span>
+                    <div className="flex items-center gap-2">
+                      <Badge className={`${partyStyles[c.party]} capitalize`} variant="secondary" aria-label={`Party: ${c.party}`}>
+                        {c.party}
+                      </Badge>
+                      <span className="text-xs text-muted-foreground">{c.tags}</span>
+                    </div>
                   </div>
 
                   <p className="text-sm text-muted-foreground">Engagement: {c.engagement} • Followers: {c.followers}</p>
