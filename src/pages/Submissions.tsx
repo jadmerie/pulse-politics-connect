@@ -1,7 +1,7 @@
 import SEO from "@/components/SEO";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { FilePenLine, ShieldCheck, Landmark, FileText, Star } from "lucide-react";
+import { FilePenLine, ShieldCheck, Landmark, FileText, Star, Clock } from "lucide-react";
 
 const Submissions = () => {
   return (
@@ -50,7 +50,7 @@ const Submissions = () => {
             <Card key={i} className="p-4">
               <div className="flex items-center justify-between">
                 <h2 className="font-semibold text-foreground">TikTok Video Draft • Creator #{i}</h2>
-                <span className="text-xs text-muted-foreground">Pending</span>
+                <span className="text-xs text-muted-foreground inline-flex items-center"><Clock className="w-3.5 h-3.5 mr-1" /> Pending</span>
               </div>
               <p className="text-sm text-muted-foreground mt-1">Includes #Ad and paid disclaimer.</p>
               <div className="mt-3 flex gap-2">
