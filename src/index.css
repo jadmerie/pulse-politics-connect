@@ -30,8 +30,8 @@ All colors MUST be HSL.
     --accent: 0 85% 55%;
     --accent-foreground: 0 0% 100%;
 
-    --patriot-blue: 220 85% 35%;
-    --patriot-red: 0 85% 55%;
+    --patriot-blue: 219 55% 28%;
+    --patriot-red: 0 73% 54%;
 
     --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
@@ -44,10 +44,10 @@ All colors MUST be HSL.
     --ring: 0 85% 55%;
 
     /* Custom gradients inspired by logo */
-    --gradient-primary: linear-gradient(135deg, hsl(220 40% 12%), hsl(0 85% 55%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 40% 12%) 0%, hsl(220 85% 35%) 50%, hsl(0 85% 55%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(var(--patriot-blue)), hsl(var(--patriot-red)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--patriot-blue)) 0%, hsl(var(--patriot-blue)) 50%, hsl(var(--patriot-red)) 100%);
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 20% 98%) 100%);
-    --gradient-patriot: linear-gradient(90deg, hsl(220 85% 35%) 0%, hsl(0 85% 55%) 100%);
+    --gradient-patriot: linear-gradient(90deg, hsl(var(--patriot-blue)) 0%, hsl(var(--patriot-red)) 100%);
     
     /* Shadows */
     --shadow-elegant: 0 10px 40px -10px hsl(220 40% 12% / 0.15);
@@ -74,7 +74,7 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 222 46% 7%;
     --foreground: 210 40% 98%;
 
     --card: 222.2 84% 4.9%;
@@ -118,7 +118,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-brand;
   }
 }
 

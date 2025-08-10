@@ -4,12 +4,12 @@ import heroImage from "@/assets/hero-image.jpg";
 const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center bg-gradient-hero relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-patriot-blue/90 via-patriot-blue/70 to-transparent" />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-white">
-            <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <h1 className="font-brand text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Amplify Your PAC's Voice
               <span className="text-patriot-red"> Through Authentic Influence</span>
             </h1>
