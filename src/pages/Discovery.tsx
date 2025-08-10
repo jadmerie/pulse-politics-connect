@@ -2,6 +2,54 @@ import SEO from "@/components/SEO";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Filter, Search } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import creator1 from "@/assets/avatars/creator1.jpg";
+import creator2 from "@/assets/avatars/creator2.jpg";
+import creator3 from "@/assets/avatars/creator3.jpg";
+import creator4 from "@/assets/avatars/creator4.jpg";
+
+const creators = [
+  {
+    name: "Maya Lopez",
+    location: "Miami, FL",
+    tags: "Gen Z • Climate",
+    engagement: "7.8%",
+    followers: "18k",
+    bio: "South Florida creator covering climate resilience and civic participation.",
+    avatar: creator1,
+    platforms: ["TikTok", "Instagram"],
+  },
+  {
+    name: "Jared Kim",
+    location: "Atlanta, GA",
+    tags: "Millennial • Voting Access",
+    engagement: "6.2%",
+    followers: "24k",
+    bio: "Community organizer sharing GOTV resources and policy explainers.",
+    avatar: creator2,
+    platforms: ["Instagram", "YouTube"],
+  },
+  {
+    name: "Aisha Rahman",
+    location: "Phoenix, AZ",
+    tags: "Gen Z • Education",
+    engagement: "8.4%",
+    followers: "15k",
+    bio: "Student advocate creating short-form videos on education equity.",
+    avatar: creator3,
+    platforms: ["TikTok"],
+  },
+  {
+    name: "Diego Ortega",
+    location: "Orlando, FL",
+    tags: "Gen Z • Climate",
+    engagement: "7.1%",
+    followers: "19k",
+    bio: "Bilingual content on local issues and early voting info.",
+    avatar: creator4,
+    platforms: ["TikTok", "Instagram"],
+  },
+];
 
 const Discovery = () => {
   return (
@@ -54,14 +102,27 @@ const Discovery = () => {
             </Card>
 
             <section className="grid gap-4 sm:grid-cols-2">
-              {[1, 2, 3, 4].map((i) => (
-                <Card key={i} className="p-4 hover-scale">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="font-semibold text-foreground">Creator #{i} — Miami, FL</h3>
-                    <span className="text-xs text-muted-foreground">Gen Z • Climate</span>
+              {creators.map((c, idx) => (
+                <Card key={idx} className="p-4 hover-scale">
+                  <div className="flex items-start justify-between mb-2">
+                    <div className="flex items-center gap-3">
+                      <Avatar className="h-10 w-10">
+                        <AvatarImage src={c.avatar} alt={`${c.name} profile photo`} loading="lazy" />
+                        <AvatarFallback>{c.name.split(" ").map(n => n[0]).join("")}</AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <h3 className="font-semibold text-foreground">{c.name}</h3>
+                        <p className="text-xs text-muted-foreground">{c.location}</p>
+                      </div>
+                    </div>
+                    <span className="text-xs text-muted-foreground">{c.tags}</span>
                   </div>
-                  <p className="text-sm text-muted-foreground">Engagement: 7.8% • Followers: 18k</p>
-                  <div className="mt-3">
+
+                  <p className="text-sm text-muted-foreground">Engagement: {c.engagement} • Followers: {c.followers}</p>
+                  <p className="text-sm text-foreground/80 mt-2">{c.bio}</p>
+
+                  <div className="mt-3 flex items-center justify-between">
+                    <div className="text-xs text-muted-foreground">Platforms: {c.platforms.join(", ")}</div>
                     <Button variant="cta" size="sm">Invite</Button>
                   </div>
                 </Card>
