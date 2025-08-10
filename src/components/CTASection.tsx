@@ -2,8 +2,10 @@ import { Button } from "@/components/ui/button";
 
 const CTASection = () => {
   return (
-    <section className="py-24 bg-gradient-hero relative overflow-hidden">
-      <div className="absolute inset-0 bg-primary/90" />
+    <section className="py-24 bg-gradient-patriot relative overflow-hidden">
+      <div className="absolute inset-0 bg-stripes" aria-hidden />
+      <div className="absolute inset-0 bg-gradient-to-r from-patriot-blue/80 via-patriot-blue/60 to-patriot-red/30" />
+      <div className="absolute inset-0 bg-stars opacity-20" aria-hidden />
       
       <div className="container mx-auto px-6 relative z-10 text-center">
         <h2 className="text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">

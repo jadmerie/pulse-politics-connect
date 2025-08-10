@@ -141,4 +141,13 @@ All colors MUST be HSL.
   .pulse {
     @apply animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite];
   }
+
+  .bg-stars {
+    background-image: radial-gradient(hsl(var(--primary-foreground) / 0.12) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .bg-stripes {
+    background-image: repeating-linear-gradient(45deg, hsl(var(--patriot-red) / 0.05) 0 12px, transparent 12px 24px);
+  }
 }

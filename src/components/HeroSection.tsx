@@ -3,9 +3,10 @@ import heroGenZ from "@/assets/polipulse-genz-hero.webp";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center bg-gradient-hero relative overflow-hidden">
+    <section className="min-h-screen flex items-center bg-gradient-patriot relative overflow-hidden">
+      <div className="absolute inset-0 bg-stripes" aria-hidden />
       <div className="absolute inset-0 bg-gradient-to-r from-patriot-blue/90 via-patriot-blue/70 to-transparent" />
-      
+      <div className="absolute inset-0 bg-stars opacity-20" aria-hidden />
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-foreground">
