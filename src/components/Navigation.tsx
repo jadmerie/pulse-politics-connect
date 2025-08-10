@@ -11,9 +11,17 @@ const Navigation = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <div className="font-brand font-bold text-xl text-primary">
-              PoliPulse
-            </div>
+            <Link to="/" className="flex items-center gap-3">
+              <img
+                src="/lovable-uploads/29753492-911c-4f06-8174-0828d933693d.png"
+                alt="PoliPulse logo – political influencer marketing platform"
+                className="h-8 w-auto"
+                width="128"
+                height="128"
+                loading="eager"
+              />
+              <span className="sr-only">PoliPulse</span>
+            </Link>
           </div>
           
           {/* Desktop Navigation */}

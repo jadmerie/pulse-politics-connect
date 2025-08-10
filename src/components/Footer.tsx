@@ -4,7 +4,14 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-8">
           <div>
-            <div className="font-bold text-xl mb-4">PoliPulse</div>
+            <img
+              src="/lovable-uploads/29753492-911c-4f06-8174-0828d933693d.png"
+              alt="PoliPulse logo – compliant political influencer marketing"
+              className="h-8 w-auto mb-4"
+              width="128"
+              height="128"
+              loading="lazy"
+            />
             <p className="text-primary-foreground/80 text-sm leading-relaxed">
               The leading platform for political influence marketing, connecting campaigns 
               with authentic voices while ensuring full compliance.
