@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Building2, Users2, Zap, DollarSign, Shield, Target } from "lucide-react";
-
 const DualAudienceSection = () => {
-  return (
-    <section className="py-24 bg-background">
+  return <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4">
@@ -23,14 +21,14 @@ const DualAudienceSection = () => {
               <div className="w-12 h-12 bg-patriot-red rounded-lg flex items-center justify-center mr-4">
                 <Building2 className="w-6 h-6 text-primary-foreground" />
               </div>
-              <h3 className="text-2xl font-bold text-patriot-red">For Political Action Committees</h3>
+              <h3 className="text-2xl font-bold text-foreground">For Political Action Committees</h3>
             </div>
             
             <div className="space-y-6 mb-8">
               <div className="flex items-start">
                 <Target className="w-5 h-5 text-patriot-red mt-1 mr-3 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">District-Level Targeting</h4>
+                  <h4 className="font-semibold text-foreground mb-1">chanegDistrict-Level Targeting</h4>
                   <p className="text-muted-foreground text-sm">Reach voters in specific congressional districts with influencers who have authentic local followings and political credibility.</p>
                 </div>
               </div>
@@ -63,7 +61,7 @@ const DualAudienceSection = () => {
               <div className="w-12 h-12 bg-patriot-blue rounded-lg flex items-center justify-center mr-4">
                 <Users2 className="w-6 h-6 text-primary-foreground" />
               </div>
-              <h3 className="text-2xl font-bold text-patriot-blue">For Political Content Creators</h3>
+              <h3 className="text-2xl font-bold text-foreground">For Political Content Creators</h3>
             </div>
             
             <div className="space-y-6 mb-8">
@@ -98,8 +96,6 @@ const DualAudienceSection = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default DualAudienceSection;
