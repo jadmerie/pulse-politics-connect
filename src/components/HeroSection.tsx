@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-image.jpg";
+import heroGenZ from "@/assets/polipulse-genz-hero.webp";
 
 const HeroSection = () => {
   return (
@@ -47,8 +47,8 @@ const HeroSection = () => {
           
           <div className="lg:block hidden">
             <img 
-              src={heroImage} 
-              alt="Political campaign team collaborating" 
+              src={heroGenZ}
+              alt="PoliPulse logo with Gen Z influencer theme"
               className="rounded-2xl shadow-elegant w-full h-auto"
               loading="lazy"
               decoding="async"
