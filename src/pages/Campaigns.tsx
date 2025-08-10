@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FolderPlus, ListChecks } from "lucide-react";
 import PatrioticBanner from "@/components/PatrioticBanner";
-import votersHero from "@/assets/voters-hero.jpg";
+import votersHero from "@/assets/voters-at-polls.webp";
 import BackedByStrip from "@/components/BackedByStrip";
 
 const Campaigns = () => {
@@ -34,7 +34,7 @@ const Campaigns = () => {
           title="Mobilize Voters"
           subtitle="Plan, budget, and launch campaigns that inform and inspire civic participation."
           image={votersHero}
-          alt="Diverse American voters at polling place"
+          alt="Voters lining up to vote at the polls"
         />
 
         <BackedByStrip />
