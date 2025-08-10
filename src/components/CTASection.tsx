@@ -18,7 +18,7 @@ const CTASection = () => {
           <Button variant="pulse" size="lg" className="text-lg px-8 py-4 bg-primary-foreground text-primary hover:bg-primary-foreground/90">
             Start PAC Campaign
           </Button>
-          <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+          <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-primary-foreground/30 text-accent-foreground hover:bg-primary-foreground/10">
             Book Strategy Call
           </Button>
         </div>
