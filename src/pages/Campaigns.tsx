@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { FolderPlus, ListChecks } from "lucide-react";
 import PatrioticBanner from "@/components/PatrioticBanner";
 import votersHero from "@/assets/voters-hero.jpg";
+import BackedByStrip from "@/components/BackedByStrip";
 
 const Campaigns = () => {
   return (
@@ -35,6 +36,8 @@ const Campaigns = () => {
           image={votersHero}
           alt="Diverse American voters at polling place"
         />
+
+        <BackedByStrip />
 
         <section className="grid gap-4 md:grid-cols-2 mt-6">
           {["Voter Reg Florida", "GOTV Georgia"].map((name, idx) => (
