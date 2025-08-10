@@ -16,7 +16,7 @@ const DualAudienceSection = () => {
         
         <div className="grid lg:grid-cols-2 gap-12">
           {/* For Campaigns */}
-          <Card className="p-12 bg-gradient-card border-0 shadow-card">
+          <Card className="p-12 bg-gradient-patriot text-primary-foreground border-0 shadow-card">
             <div className="flex items-center mb-8">
               <div className="w-12 h-12 bg-patriot-red rounded-lg flex items-center justify-center mr-4">
                 <Building2 className="w-6 h-6 text-primary-foreground" />
