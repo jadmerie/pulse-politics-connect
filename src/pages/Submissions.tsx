@@ -6,8 +6,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import presidential1 from "@/assets/avatars/presidential-1.webp";
 import presidential2 from "@/assets/avatars/presidential-2.webp";
 import presidential3 from "@/assets/avatars/presidential-3.webp";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import submissionsRally from "@/assets/submissions-rally.webp";
+import submissionsGenZRally from "@/assets/submissions-genz-rally.webp";
 
 const Submissions = () => {
   return (
@@ -24,11 +23,14 @@ const Submissions = () => {
       />
       <main className="container mx-auto px-6 pt-24 pb-16">
         <header className="mb-8 relative overflow-hidden rounded-xl border bg-gradient-patriot text-primary-foreground p-6 shadow-card shadow-red animate-fade-in">
-          <div
-            className="absolute inset-0 opacity-10"
-            aria-hidden
-            style={{ backgroundImage: "repeating-linear-gradient(45deg, hsl(var(--primary-foreground) / 0.06) 0 10px, transparent 10px 20px)" }}
-          />
+          <div className="absolute inset-0" aria-hidden>
+            <img src={submissionsGenZRally} alt="Gen Z influencer speaking at a patriotic rally" className="h-full w-full object-cover" loading="lazy" />
+            <div className="absolute inset-0 bg-background/65" />
+            <div
+              className="absolute inset-0"
+              style={{ backgroundImage: "repeating-linear-gradient(45deg, hsl(var(--primary-foreground) / 0.06) 0 10px, transparent 10px 20px)" }}
+            />
+          </div>
           <div className="absolute -right-6 -top-8 hidden md:block opacity-10" aria-hidden>
             <Landmark className="w-48 h-48 text-primary-foreground" />
           </div>
@@ -51,23 +53,6 @@ const Submissions = () => {
           </div>
         </header>
 
-        <section className="mt-6">
-          <figure className="rounded-xl border bg-card shadow-card overflow-hidden animate-fade-in">
-            <AspectRatio ratio={16/9}>
-              <img
-                src={submissionsRally}
-                alt="Passionate influencer speaking at a rally with many American flags"
-                className="h-full w-full object-cover"
-                loading="lazy"
-                decoding="async"
-                sizes="100vw"
-              />
-            </AspectRatio>
-            <figcaption className="p-3 text-xs text-muted-foreground">
-              Grassroots energy powering American democracy
-            </figcaption>
-          </figure>
-        </section>
         <section className="grid gap-4 md:grid-cols-2 mt-6">
           {[1, 2, 3].map((i) => (
             <Card key={i} className="p-4">
