@@ -2,7 +2,7 @@ import SEO from "@/components/SEO";
 import { Card } from "@/components/ui/card";
 import { BadgeCheck, Users } from "lucide-react";
 import PatrioticBanner from "@/components/PatrioticBanner";
-import capitolHero from "@/assets/capitol-hero.jpg";
+import whiteHousePress from "@/assets/white-house-press.webp";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import influencerPatriot1 from "@/assets/avatars/influencer-patriot-1.webp";
 import pacEmblem1 from "@/assets/avatars/pac-emblem-1.webp";
@@ -29,8 +29,8 @@ const Profiles = () => {
         <PatrioticBanner
           title="Trusted American Voices"
           subtitle="Verified creators and organizations advancing civic engagement across the nation."
-          image={capitolHero}
-          alt="US Capitol with American flag accent"
+          image={whiteHousePress}
+          alt="White House press briefing with American flags"
         />
 
         <section className="grid gap-4 md:grid-cols-2 mt-6">
