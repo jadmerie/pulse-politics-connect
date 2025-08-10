@@ -2,6 +2,8 @@ import SEO from "@/components/SEO";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Wallet, Receipt } from "lucide-react";
+import PatrioticBanner from "@/components/PatrioticBanner";
+import dcMonumentsHero from "@/assets/dc-monuments-hero.webp";
 
 const Payments = () => {
   return (
@@ -22,7 +24,14 @@ const Payments = () => {
           <p className="text-muted-foreground mt-2">Escrow-based payouts and FEC-friendly records.</p>
         </header>
 
-        <section className="grid gap-4 md:grid-cols-2">
+        <PatrioticBanner
+          title="Transparent Payments, American Accountability"
+          subtitle="Secure escrow, clear audit trails, and on-time payouts—built for civic trust."
+          image={dcMonumentsHero}
+          alt="Washington, D.C. monuments with American flags"
+        />
+
+        <section className="grid gap-4 md:grid-cols-2 mt-6">
           <Card className="p-4 hover-scale">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
