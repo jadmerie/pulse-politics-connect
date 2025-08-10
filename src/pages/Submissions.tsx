@@ -6,6 +6,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import presidential1 from "@/assets/avatars/presidential-1.webp";
 import presidential2 from "@/assets/avatars/presidential-2.webp";
 import presidential3 from "@/assets/avatars/presidential-3.webp";
+import submissionsHeaderImage from "@/assets/submissions-genz-rally-hero.webp";
 import submissionsGenZRally from "@/assets/submissions-genz-rally.webp";
 
 const Submissions = () => {
@@ -23,13 +24,21 @@ const Submissions = () => {
       />
       <main className="container mx-auto px-6 pt-24 pb-16">
         <header className="mb-8 relative overflow-hidden rounded-xl border bg-gradient-patriot text-primary-foreground p-6 shadow-card shadow-red animate-fade-in">
-          <div className="absolute inset-0" aria-hidden>
-            <img src={submissionsGenZRally} alt="Gen Z influencer speaking at a patriotic rally" className="h-full w-full object-cover" loading="lazy" />
-            <div className="absolute inset-0 bg-background/65" />
-            <div
-              className="absolute inset-0"
-              style={{ backgroundImage: "repeating-linear-gradient(45deg, hsl(var(--primary-foreground) / 0.06) 0 10px, transparent 10px 20px)" }}
-            />
+          <div className="pointer-events-none absolute inset-0" aria-hidden>
+            <div className="absolute inset-y-0 right-0 w-1/2">
+              <img
+                src={submissionsHeaderImage}
+                alt="Gen Z influencer speaking at a patriotic rally"
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-background/40" />
+              <div
+                className="absolute inset-0"
+                style={{ backgroundImage: "repeating-linear-gradient(45deg, hsl(var(--primary-foreground) / 0.05) 0 10px, transparent 10px 20px)" }}
+              />
+            </div>
           </div>
           <div className="absolute -right-6 -top-8 hidden md:block opacity-10" aria-hidden>
             <Landmark className="w-48 h-48 text-primary-foreground" />
