@@ -16,9 +16,7 @@ const HeroSection = () => {
             </h1>
             
             <p className="text-xl mb-8 text-foreground/90 leading-relaxed">
-              The premier platform for Political Action Committees to connect with 
-              verified micro-influencers. Execute compliant grassroots campaigns 
-              that drive voter engagement and maximize your political impact.
+              PoliPulse is the platform for campaigns, advocacy groups, and causes to team up with vetted micro- and nano-influencers. Launch and track authentic, FEC/FTC-compliant campaigns that reach Gen Z where they are — on Instagram, TikTok, and beyond.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
