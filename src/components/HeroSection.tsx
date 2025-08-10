@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroCollege from "@/assets/rep-college-speech.webp";
+import heroCollege from "@/assets/rep-college-speech-2.webp";
 
 const HeroSection = () => {
   return (
@@ -50,7 +50,7 @@ const HeroSection = () => {
             <img 
               src={heroCollege}
               alt="U.S. representative giving a major speech at a college campus rally"
-              className="rounded-2xl shadow-elegant w-full h-auto object-cover"
+              className="rounded-2xl shadow-elegant w-full h-auto object-cover lg:scale-110 lg:translate-x-2"
               loading="lazy"
               decoding="async"
             />
