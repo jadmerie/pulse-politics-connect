@@ -50,7 +50,7 @@ const HeroSection = () => {
             <img 
               src="/lovable-uploads/29753492-911c-4f06-8174-0828d933693d.png"
               alt="PoliPulse logo"
-              className="rounded-2xl shadow-elegant w-full h-auto"
+              className="w-2/3 max-w-md mx-auto h-auto object-contain"
               loading="lazy"
               decoding="async"
             />
