@@ -2,6 +2,8 @@ import SEO from "@/components/SEO";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FilePenLine, ShieldCheck } from "lucide-react";
+import PatrioticBanner from "@/components/PatrioticBanner";
+import capitolHero from "@/assets/capitol-hero.jpg";
 
 const Submissions = () => {
   return (
@@ -22,6 +24,13 @@ const Submissions = () => {
           <p className="text-muted-foreground mt-2">Drafts awaiting review and approval.</p>
         </header>
 
+        <PatrioticBanner
+          title="Protect Integrity. Promote Transparency."
+          subtitle="Politically aligned content, verified disclosures, FEC-ready review workflow."
+          image={capitolHero}
+          alt="US Capitol building with American flag"
+        />
+        
         <section className="grid gap-4 md:grid-cols-2">
           {[1, 2, 3].map((i) => (
             <Card key={i} className="p-4">
