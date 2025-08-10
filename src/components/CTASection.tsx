@@ -6,24 +6,24 @@ const CTASection = () => {
       <div className="absolute inset-0 bg-primary/90" />
       
       <div className="container mx-auto px-6 relative z-10 text-center">
-        <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+        <h2 className="text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
           Ready to Amplify Your PAC's Impact?
         </h2>
-        <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto leading-relaxed">
           Join 200+ Political Action Committees using PoliPulse to reach voters 
           authentically while maintaining full FEC compliance.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Button variant="pulse" size="lg" className="text-lg px-8 py-4 bg-white text-primary hover:bg-white/90">
+          <Button variant="pulse" size="lg" className="text-lg px-8 py-4 bg-primary-foreground text-primary hover:bg-primary-foreground/90">
             Start PAC Campaign
           </Button>
-          <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-white/30 text-white hover:bg-white/10">
+          <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
             Book Strategy Call
           </Button>
         </div>
         
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-white/70 text-sm">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-primary-foreground/70 text-sm">
           <div className="flex items-center">
             ✓ No setup fees
           </div>
