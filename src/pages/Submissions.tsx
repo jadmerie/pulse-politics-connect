@@ -1,7 +1,7 @@
 import SEO from "@/components/SEO";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { FilePenLine, ShieldCheck } from "lucide-react";
+import { FilePenLine, ShieldCheck, Landmark, FileText } from "lucide-react";
 
 const Submissions = () => {
   return (
@@ -18,8 +18,22 @@ const Submissions = () => {
       />
       <main className="container mx-auto px-6 pt-24 pb-16">
         <header className="mb-8 relative overflow-hidden rounded-xl border bg-patriot-blue text-primary-foreground p-6 shadow-card animate-fade-in">
-          <h1 className="text-3xl font-bold text-primary-foreground">Submissions</h1>
-          <p className="text-primary-foreground/90 mt-2">Drafts awaiting review and approval.</p>
+          <div className="absolute inset-0 bg-gradient-patriot opacity-10" aria-hidden />
+          <div className="absolute -right-6 -top-8 hidden md:block opacity-10" aria-hidden>
+            <Landmark className="w-48 h-48 text-primary-foreground" />
+          </div>
+          <div className="relative z-10">
+            <h1 className="text-3xl font-bold text-primary-foreground">Submissions</h1>
+            <p className="text-primary-foreground/90 mt-2">Drafts awaiting review and approval.</p>
+            <div className="mt-3 flex flex-wrap items-center gap-4 text-primary-foreground/90 text-sm">
+              <span className="inline-flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4" /> FEC Compliance
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <FileText className="w-4 h-4" /> Public Disclosures
+              </span>
+            </div>
+          </div>
         </header>
 
         <section className="grid gap-4 md:grid-cols-2 mt-6">
