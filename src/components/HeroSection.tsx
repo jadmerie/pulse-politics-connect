@@ -50,6 +50,8 @@ const HeroSection = () => {
               src={heroImage} 
               alt="Political campaign team collaborating" 
               className="rounded-2xl shadow-elegant w-full h-auto"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
