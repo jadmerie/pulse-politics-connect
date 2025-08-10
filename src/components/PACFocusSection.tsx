@@ -45,7 +45,7 @@ const PACFocusSection = () => {
             </p>
           </Card>
           
-          <Card className="p-8 bg-white/10 backdrop-blur-sm border-white/20 text-white">
+          <Card className="p-8 bg-white/10 backdrop-blur-sm border-white/20 text-patriot-blue">
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 bg-patriot-red rounded-lg flex items-center justify-center mr-4">
                 <TrendingUp className="w-6 h-6 text-white" />
