@@ -5,7 +5,7 @@ import { Building2, Vote, TrendingUp, Shield, Users, DollarSign } from "lucide-r
 const PACFocusSection = () => {
   return (
     <section className="py-24 bg-gradient-hero relative overflow-hidden">
-      <div className="absolute inset-0 bg-primary/95" />
+      <div className="absolute inset-0 bg-gradient-to-r from-patriot-blue/90 via-patriot-blue/70 to-transparent" />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
