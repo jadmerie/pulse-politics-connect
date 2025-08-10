@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-//
+import heroAmerican from "@/assets/american-political-hero.webp";
 
 const HeroSection = () => {
   return (
@@ -48,9 +48,9 @@ const HeroSection = () => {
           
           <div className="lg:block hidden">
             <img 
-              src="/lovable-uploads/29753492-911c-4f06-8174-0828d933693d.png"
-              alt="PoliPulse logo"
-              className="w-2/3 max-w-md mx-auto h-auto object-contain mix-blend-multiply"
+              src={heroAmerican}
+              alt="Iconic American political rally at the U.S. Capitol with flags"
+              className="rounded-2xl shadow-elegant w-full h-auto object-cover"
               loading="lazy"
               decoding="async"
             />
