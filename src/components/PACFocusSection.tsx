@@ -60,7 +60,7 @@ const PACFocusSection = () => {
         </div>
         
         <div className="text-center">
-          <Button variant="pulse" size="lg" className="text-lg px-12 py-4 bg-white text-primary hover:bg-white/90">
+          <Button variant="pulse" size="lg" className="text-lg px-12 py-4 bg-patriot-blue text-white hover:bg-patriot-blue/90">
             Schedule PAC Demo
           </Button>
         </div>
