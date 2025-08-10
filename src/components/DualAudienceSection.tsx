@@ -23,7 +23,7 @@ const DualAudienceSection = () => {
               <div className="w-12 h-12 bg-patriot-red rounded-lg flex items-center justify-center mr-4">
                 <Building2 className="w-6 h-6 text-primary-foreground" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground">For Political Action Committees</h3>
+              <h3 className="text-2xl font-bold text-patriot-red">For Political Action Committees</h3>
             </div>
             
             <div className="space-y-6 mb-8">
