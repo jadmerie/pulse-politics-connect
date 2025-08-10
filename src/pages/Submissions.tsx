@@ -2,8 +2,6 @@ import SEO from "@/components/SEO";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FilePenLine, ShieldCheck } from "lucide-react";
-import PatrioticBanner from "@/components/PatrioticBanner";
-import capitolHero from "@/assets/capitol-hero.jpg";
 
 const Submissions = () => {
   return (
@@ -19,19 +17,12 @@ const Submissions = () => {
         }}
       />
       <main className="container mx-auto px-6 pt-24 pb-16">
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground">Submissions</h1>
-          <p className="text-muted-foreground mt-2">Drafts awaiting review and approval.</p>
+        <header className="mb-8 relative overflow-hidden rounded-xl border bg-patriot-blue text-primary-foreground p-6 shadow-card animate-fade-in">
+          <h1 className="text-3xl font-bold text-primary-foreground">Submissions</h1>
+          <p className="text-primary-foreground/90 mt-2">Drafts awaiting review and approval.</p>
         </header>
 
-        <PatrioticBanner
-          title="Protect Integrity. Promote Transparency."
-          subtitle="Politically aligned content, verified disclosures, FEC-ready review workflow."
-          image={capitolHero}
-          alt="US Capitol building with American flag"
-        />
-        
-        <section className="grid gap-4 md:grid-cols-2">
+        <section className="grid gap-4 md:grid-cols-2 mt-6">
           {[1, 2, 3].map((i) => (
             <Card key={i} className="p-4">
               <div className="flex items-center justify-between">
