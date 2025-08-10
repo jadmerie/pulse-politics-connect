@@ -18,12 +18,12 @@ const Payments = () => {
       />
       <main className="container mx-auto px-6 pt-24 pb-16">
         <header className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground">Payments</h1>
+          <h1 className="font-brand text-3xl font-bold text-foreground">Payments</h1>
           <p className="text-muted-foreground mt-2">Escrow-based payouts and FEC-friendly records.</p>
         </header>
 
         <section className="grid gap-4 md:grid-cols-2">
-          <Card className="p-4">
+          <Card className="p-4 hover-scale">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Wallet className="w-4 h-4" />
@@ -34,7 +34,7 @@ const Payments = () => {
             <p className="text-sm text-muted-foreground mt-1">Current: $32,500 • Reserved: $8,900</p>
           </Card>
 
-          <Card className="p-4">
+          <Card className="p-4 hover-scale">
             <div className="flex items-center gap-2 mb-2">
               <Receipt className="w-4 h-4" />
               <h2 className="font-semibold text-foreground">Recent Transactions</h2>

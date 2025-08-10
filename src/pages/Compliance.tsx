@@ -16,20 +16,20 @@ const Compliance = () => {
         }}
       />
       <main className="container mx-auto px-6 pt-24 pb-16">
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground">Compliance</h1>
+        <header className="mb-8 animate-fade-in">
+          <h1 className="font-brand text-3xl font-bold text-foreground">Compliance</h1>
           <p className="text-muted-foreground mt-2">Disclosure checks, audit logs, and review queue.</p>
         </header>
 
         <section className="grid gap-4 md:grid-cols-2">
-          <Card className="p-4">
+          <Card className="p-4 hover-scale">
             <div className="flex items-center gap-2 mb-2">
               <Shield className="w-4 h-4" />
               <h2 className="font-semibold text-foreground">Status Overview</h2>
             </div>
             <p className="text-sm text-muted-foreground">Compliant: 92% • Pending: 6% • Flagged: 2%</p>
           </Card>
-          <Card className="p-4">
+          <Card className="p-4 hover-scale">
             <div className="flex items-center gap-2 mb-2">
               <ClipboardList className="w-4 h-4" />
               <h2 className="font-semibold text-foreground">Recent Audit Log</h2>

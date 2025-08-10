@@ -17,9 +17,9 @@ const Campaigns = () => {
         }}
       />
       <main className="container mx-auto px-6 pt-24 pb-16">
-        <header className="mb-8 flex items-center justify-between">
+        <header className="mb-8 flex items-center justify-between animate-fade-in">
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Campaigns</h1>
+            <h1 className="font-brand text-3xl font-bold text-foreground">Campaigns</h1>
             <p className="text-muted-foreground mt-2">Define objectives, budgets, and track influencer progress.</p>
           </div>
           <Button variant="professional">
@@ -29,7 +29,7 @@ const Campaigns = () => {
 
         <section className="grid gap-4 md:grid-cols-2">
           {["Voter Reg Florida", "GOTV Georgia"].map((name, idx) => (
-            <Card key={idx} className="p-4">
+            <Card key={idx} className="p-4 hover-scale">
               <div className="flex items-center justify-between">
                 <h2 className="font-semibold text-foreground">{name}</h2>
                 <span className="text-xs text-muted-foreground">Active</span>

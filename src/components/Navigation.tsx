@@ -7,36 +7,36 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-border z-50">
+    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-sm border-b border-border z-50">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <div className="font-bold text-xl text-primary">
+            <div className="font-brand font-bold text-xl text-primary">
               PoliPulse
             </div>
           </div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/discovery" className="text-foreground hover:text-primary transition-colors font-medium">
+            <Link to="/discovery" className="story-link text-foreground hover:text-primary transition-colors font-medium">
               Discovery
             </Link>
-            <Link to="/campaigns" className="text-foreground hover:text-primary transition-colors font-medium">
+            <Link to="/campaigns" className="story-link text-foreground hover:text-primary transition-colors font-medium">
               Campaigns
             </Link>
-            <Link to="/submissions" className="text-foreground hover:text-primary transition-colors font-medium">
+            <Link to="/submissions" className="story-link text-foreground hover:text-primary transition-colors font-medium">
               Submissions
             </Link>
-            <Link to="/compliance" className="text-foreground hover:text-primary transition-colors font-medium">
+            <Link to="/compliance" className="story-link text-foreground hover:text-primary transition-colors font-medium">
               Compliance
             </Link>
-            <Link to="/analytics" className="text-foreground hover:text-primary transition-colors font-medium">
+            <Link to="/analytics" className="story-link text-foreground hover:text-primary transition-colors font-medium">
               Analytics
             </Link>
-            <Link to="/payments" className="text-foreground hover:text-primary transition-colors font-medium">
+            <Link to="/payments" className="story-link text-foreground hover:text-primary transition-colors font-medium">
               Payments
             </Link>
-            <Link to="/profiles" className="text-foreground hover:text-primary transition-colors font-medium">
+            <Link to="/profiles" className="story-link text-foreground hover:text-primary transition-colors font-medium">
               Profiles
             </Link>
           </div>
@@ -69,25 +69,25 @@ const Navigation = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-4">
-              <Link to="/discovery" className="text-foreground hover:text-primary transition-colors">
+              <Link to="/discovery" className="story-link text-foreground hover:text-primary transition-colors">
                 Discovery
               </Link>
-              <Link to="/campaigns" className="text-foreground hover:text-primary transition-colors">
+              <Link to="/campaigns" className="story-link text-foreground hover:text-primary transition-colors">
                 Campaigns
               </Link>
-              <Link to="/submissions" className="text-foreground hover:text-primary transition-colors">
+              <Link to="/submissions" className="story-link text-foreground hover:text-primary transition-colors">
                 Submissions
               </Link>
-              <Link to="/compliance" className="text-foreground hover:text-primary transition-colors">
+              <Link to="/compliance" className="story-link text-foreground hover:text-primary transition-colors">
                 Compliance
               </Link>
-              <Link to="/analytics" className="text-foreground hover:text-primary transition-colors">
+              <Link to="/analytics" className="story-link text-foreground hover:text-primary transition-colors">
                 Analytics
               </Link>
-              <Link to="/payments" className="text-foreground hover:text-primary transition-colors">
+              <Link to="/payments" className="story-link text-foreground hover:text-primary transition-colors">
                 Payments
               </Link>
-              <Link to="/profiles" className="text-foreground hover:text-primary transition-colors">
+              <Link to="/profiles" className="story-link text-foreground hover:text-primary transition-colors">
                 Profiles
               </Link>
               <div className="flex flex-col space-y-2 pt-4">

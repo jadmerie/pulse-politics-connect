@@ -19,8 +19,8 @@ const Discovery = () => {
         }}
       />
       <main className="container mx-auto px-6 pt-24 pb-16">
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground">PAC Influencer Discovery</h1>
+        <header className="mb-8 animate-fade-in">
+          <h1 className="font-brand text-3xl font-bold text-foreground">PAC Influencer Discovery</h1>
           <p className="text-muted-foreground mt-2 max-w-2xl">
             Filter by geography, demographics, platform metrics, and issues to find high-impact creators.
           </p>
@@ -55,7 +55,7 @@ const Discovery = () => {
 
             <section className="grid gap-4 sm:grid-cols-2">
               {[1, 2, 3, 4].map((i) => (
-                <Card key={i} className="p-4">
+                <Card key={i} className="p-4 hover-scale">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="font-semibold text-foreground">Creator #{i} — Miami, FL</h3>
                     <span className="text-xs text-muted-foreground">Gen Z • Climate</span>
