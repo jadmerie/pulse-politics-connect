@@ -47,9 +47,9 @@ const HowItWorksSection = () => {
               <div key={index} className="text-center group">
                 <div className="relative mb-8">
                   <div className="w-20 h-20 bg-gradient-patriot rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-8 h-8 text-white" />
+                    <Icon className="w-8 h-8 text-primary-foreground" />
                   </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-patriot-red rounded-full flex items-center justify-center text-sm font-bold text-white">
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-patriot-red rounded-full flex items-center justify-center text-sm font-bold text-primary-foreground">
                     {step.step}
                   </div>
                 </div>
