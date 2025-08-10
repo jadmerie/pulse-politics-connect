@@ -2,6 +2,10 @@ import SEO from "@/components/SEO";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FilePenLine, ShieldCheck, Landmark, FileText, Star, Clock } from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import presidential1 from "@/assets/avatars/presidential-1.webp";
+import presidential2 from "@/assets/avatars/presidential-2.webp";
+import presidential3 from "@/assets/avatars/presidential-3.webp";
 
 const Submissions = () => {
   return (
@@ -49,7 +53,13 @@ const Submissions = () => {
           {[1, 2, 3].map((i) => (
             <Card key={i} className="p-4">
               <div className="flex items-center justify-between">
-                <h2 className="font-semibold text-foreground">TikTok Video Draft • Creator #{i}</h2>
+                <div className="flex items-center gap-3">
+                  <Avatar className="h-9 w-9 ring-2 ring-background shadow-elegant">
+                    <AvatarImage src={[presidential1, presidential2, presidential3][i-1]} alt={`${["President Liberty","American Stateswoman","Civic Leader"][i-1]} headshot`} loading="lazy" />
+                    <AvatarFallback className="text-xs bg-muted">US</AvatarFallback>
+                  </Avatar>
+                  <h2 className="font-semibold text-foreground">TikTok Video Draft • {["President Liberty","American Stateswoman","Civic Leader"][i-1]}</h2>
+                </div>
                 <span className="text-xs text-muted-foreground inline-flex items-center"><Clock className="w-3.5 h-3.5 mr-1" /> Pending</span>
               </div>
               <p className="text-sm text-muted-foreground mt-1">Includes #Ad and paid disclaimer.</p>
