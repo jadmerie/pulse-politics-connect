@@ -2,6 +2,8 @@ import SEO from "@/components/SEO";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FolderPlus, ListChecks } from "lucide-react";
+import PatrioticBanner from "@/components/PatrioticBanner";
+import votersHero from "@/assets/voters-hero.jpg";
 
 const Campaigns = () => {
   return (
@@ -27,7 +29,14 @@ const Campaigns = () => {
           </Button>
         </header>
 
-        <section className="grid gap-4 md:grid-cols-2">
+        <PatrioticBanner
+          title="Mobilize Voters"
+          subtitle="Plan, budget, and launch campaigns that inform and inspire civic participation."
+          image={votersHero}
+          alt="Diverse American voters at polling place"
+        />
+
+        <section className="grid gap-4 md:grid-cols-2 mt-6">
           {["Voter Reg Florida", "GOTV Georgia"].map((name, idx) => (
             <Card key={idx} className="p-4 hover-scale">
               <div className="flex items-center justify-between">

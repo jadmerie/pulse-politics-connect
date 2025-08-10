@@ -1,6 +1,8 @@
 import SEO from "@/components/SEO";
 import { Card } from "@/components/ui/card";
 import { BadgeCheck, Users } from "lucide-react";
+import PatrioticBanner from "@/components/PatrioticBanner";
+import capitolHero from "@/assets/capitol-hero.jpg";
 
 const Profiles = () => {
   return (
@@ -21,7 +23,14 @@ const Profiles = () => {
           <p className="text-muted-foreground mt-2">Influencer and Campaign Organization profiles.</p>
         </header>
 
-        <section className="grid gap-4 md:grid-cols-2">
+        <PatrioticBanner
+          title="Trusted American Voices"
+          subtitle="Verified creators and organizations advancing civic engagement across the nation."
+          image={capitolHero}
+          alt="US Capitol with American flag accent"
+        />
+
+        <section className="grid gap-4 md:grid-cols-2 mt-6">
           <Card className="p-4 hover-scale">
             <div className="flex items-center gap-2 mb-2">
               <Users className="w-4 h-4" />

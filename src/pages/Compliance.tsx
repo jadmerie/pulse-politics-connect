@@ -1,6 +1,8 @@
 import SEO from "@/components/SEO";
 import { Card } from "@/components/ui/card";
 import { Shield, ClipboardList } from "lucide-react";
+import PatrioticBanner from "@/components/PatrioticBanner";
+import capitolHero from "@/assets/capitol-hero.jpg";
 
 const Compliance = () => {
   return (
@@ -21,7 +23,14 @@ const Compliance = () => {
           <p className="text-muted-foreground mt-2">Disclosure checks, audit logs, and review queue.</p>
         </header>
 
-        <section className="grid gap-4 md:grid-cols-2">
+        <PatrioticBanner
+          title="American Transparency"
+          subtitle="Automated disclosures and immutable logs that uphold democratic integrity."
+          image={capitolHero}
+          alt="US Capitol dome representing compliance and governance"
+        />
+
+        <section className="grid gap-4 md:grid-cols-2 mt-6">
           <Card className="p-4 hover-scale">
             <div className="flex items-center gap-2 mb-2">
               <Shield className="w-4 h-4" />
