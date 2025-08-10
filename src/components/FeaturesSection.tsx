@@ -56,7 +56,7 @@ const FeaturesSection = () => {
                 <div className="w-12 h-12 bg-patriot-red rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-4">
+                <h3 className="text-xl font-semibold text-patriot-blue mb-4">
                   {feature.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
