@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,27 +18,40 @@ const Navigation = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#solutions" className="text-foreground hover:text-patriot-red transition-colors font-medium">
-              Solutions
-            </a>
-            <a href="#compliance" className="text-foreground hover:text-patriot-red transition-colors font-medium">
+            <Link to="/discovery" className="text-foreground hover:text-primary transition-colors font-medium">
+              Discovery
+            </Link>
+            <Link to="/campaigns" className="text-foreground hover:text-primary transition-colors font-medium">
+              Campaigns
+            </Link>
+            <Link to="/submissions" className="text-foreground hover:text-primary transition-colors font-medium">
+              Submissions
+            </Link>
+            <Link to="/compliance" className="text-foreground hover:text-primary transition-colors font-medium">
               Compliance
-            </a>
-            <a href="#for-pacs" className="text-foreground hover:text-patriot-red transition-colors font-medium">
-              For PACs
-            </a>
-            <a href="#influencers" className="text-foreground hover:text-patriot-red transition-colors font-medium">
-              Influencer Network
-            </a>
+            </Link>
+            <Link to="/analytics" className="text-foreground hover:text-primary transition-colors font-medium">
+              Analytics
+            </Link>
+            <Link to="/payments" className="text-foreground hover:text-primary transition-colors font-medium">
+              Payments
+            </Link>
+            <Link to="/profiles" className="text-foreground hover:text-primary transition-colors font-medium">
+              Profiles
+            </Link>
           </div>
           
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost">
-              Sign In
-            </Button>
-            <Button variant="cta">
-              Launch Campaign
-            </Button>
+            <Link to="/profiles">
+              <Button variant="ghost">
+                Sign In
+              </Button>
+            </Link>
+            <Link to="/campaigns">
+              <Button variant="cta">
+                Launch Campaign
+              </Button>
+            </Link>
           </div>
           
           {/* Mobile menu button */}
@@ -55,25 +69,38 @@ const Navigation = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-4">
-              <a href="#features" className="text-foreground hover:text-primary transition-colors">
-                Features
-              </a>
-              <a href="#how-it-works" className="text-foreground hover:text-primary transition-colors">
-                How it Works
-              </a>
-              <a href="#for-campaigns" className="text-foreground hover:text-primary transition-colors">
-                For Campaigns
-              </a>
-              <a href="#for-influencers" className="text-foreground hover:text-primary transition-colors">
-                For Influencers
-              </a>
+              <Link to="/discovery" className="text-foreground hover:text-primary transition-colors">
+                Discovery
+              </Link>
+              <Link to="/campaigns" className="text-foreground hover:text-primary transition-colors">
+                Campaigns
+              </Link>
+              <Link to="/submissions" className="text-foreground hover:text-primary transition-colors">
+                Submissions
+              </Link>
+              <Link to="/compliance" className="text-foreground hover:text-primary transition-colors">
+                Compliance
+              </Link>
+              <Link to="/analytics" className="text-foreground hover:text-primary transition-colors">
+                Analytics
+              </Link>
+              <Link to="/payments" className="text-foreground hover:text-primary transition-colors">
+                Payments
+              </Link>
+              <Link to="/profiles" className="text-foreground hover:text-primary transition-colors">
+                Profiles
+              </Link>
               <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="ghost" className="justify-start">
-                  Sign In
-                </Button>
-                <Button variant="professional" className="justify-start">
-                  Get Started
-                </Button>
+                <Link to="/profiles" className="w-full">
+                  <Button variant="ghost" className="justify-start w-full">
+                    Sign In
+                  </Button>
+                </Link>
+                <Link to="/campaigns" className="w-full">
+                  <Button variant="professional" className="justify-start w-full">
+                    Get Started
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
