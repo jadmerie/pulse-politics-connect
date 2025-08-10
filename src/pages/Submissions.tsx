@@ -6,6 +6,8 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import presidential1 from "@/assets/avatars/presidential-1.webp";
 import presidential2 from "@/assets/avatars/presidential-2.webp";
 import presidential3 from "@/assets/avatars/presidential-3.webp";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import submissionsRally from "@/assets/submissions-rally.webp";
 
 const Submissions = () => {
   return (
@@ -49,6 +51,23 @@ const Submissions = () => {
           </div>
         </header>
 
+        <section className="mt-6">
+          <figure className="rounded-xl border bg-card shadow-card overflow-hidden animate-fade-in">
+            <AspectRatio ratio={16/9}>
+              <img
+                src={submissionsRally}
+                alt="Passionate influencer speaking at a rally with many American flags"
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+                sizes="100vw"
+              />
+            </AspectRatio>
+            <figcaption className="p-3 text-xs text-muted-foreground">
+              Grassroots energy powering American democracy
+            </figcaption>
+          </figure>
+        </section>
         <section className="grid gap-4 md:grid-cols-2 mt-6">
           {[1, 2, 3].map((i) => (
             <Card key={i} className="p-4">
