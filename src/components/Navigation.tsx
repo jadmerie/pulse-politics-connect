@@ -44,6 +44,9 @@ const Navigation = () => {
             <Link to="/campaigns" className="story-link text-foreground hover:text-primary transition-colors font-medium">
               Campaigns
             </Link>
+            <Link to="/messages" className="story-link text-foreground hover:text-primary transition-colors font-medium">
+              Messages
+            </Link>
             <Link to="/submissions" className="story-link text-foreground hover:text-primary transition-colors font-medium">
               Submissions
             </Link>
@@ -108,6 +111,9 @@ const Navigation = () => {
               </Link>
               <Link to="/campaigns" className="story-link text-foreground hover:text-primary transition-colors">
                 Campaigns
+              </Link>
+              <Link to="/messages" className="story-link text-foreground hover:text-primary transition-colors">
+                Messages
               </Link>
               <Link to="/submissions" className="story-link text-foreground hover:text-primary transition-colors">
                 Submissions
