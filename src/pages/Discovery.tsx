@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ProfileAvatar from "@/components/ProfileAvatar";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Users, TrendingUp, Instagram, Youtube, Twitter } from "lucide-react";
@@ -157,12 +158,11 @@ const Discovery = () => {
               <Card key={influencer.id} className="hover:shadow-lg transition-shadow">
                 <CardHeader className="pb-4">
                   <div className="flex items-start gap-4">
-                    <Avatar className="w-16 h-16">
-                      <AvatarImage src={influencer.profiles?.avatar_url || ''} />
-                      <AvatarFallback>
-                        {influencer.profiles?.display_name?.charAt(0) || 'U'}
-                      </AvatarFallback>
-                    </Avatar>
+                    <ProfileAvatar 
+                      avatarUrl={influencer.profiles?.avatar_url}
+                      displayName={influencer.profiles?.display_name}
+                      size="md"
+                    />
                     <div className="flex-1 min-w-0">
                       <h3 className="font-semibold text-lg truncate">
                         {influencer.profiles?.display_name || 'Unknown'}
