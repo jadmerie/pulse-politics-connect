@@ -1,12 +1,37 @@
 import SEO from "@/components/SEO";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { FolderPlus, ListChecks } from "lucide-react";
+import { ListChecks, DollarSign, Users, Calendar } from "lucide-react";
 import PatrioticBanner from "@/components/PatrioticBanner";
 import votersHero from "@/assets/voters-at-polls.webp";
 import BackedByStrip from "@/components/BackedByStrip";
+import CampaignModal from "@/components/CampaignModal";
+import { useCampaigns } from "@/hooks/useCampaigns";
 
 const Campaigns = () => {
+  const { campaigns, loading, createCampaign } = useCampaigns();
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'active':
+        return 'text-green-600';
+      case 'draft':
+        return 'text-yellow-600';
+      case 'completed':
+        return 'text-blue-600';
+      default:
+        return 'text-muted-foreground';
+    }
+  };
+
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+    }).format(amount);
+  };
+
   return (
     <>
       <SEO
@@ -25,9 +50,7 @@ const Campaigns = () => {
             <h1 className="font-brand text-3xl font-bold text-foreground">Campaigns</h1>
             <p className="text-muted-foreground mt-2">Define objectives, budgets, and track influencer progress.</p>
           </div>
-          <Button variant="professional">
-            <FolderPlus className="w-4 h-4 mr-2" /> New Campaign
-          </Button>
+          <CampaignModal onCreateCampaign={createCampaign} />
         </header>
 
         <PatrioticBanner
@@ -40,20 +63,55 @@ const Campaigns = () => {
         <BackedByStrip />
 
         <section className="grid gap-4 md:grid-cols-2 mt-6">
-          {["Voter Reg Florida", "GOTV Georgia"].map((name, idx) => (
-            <Card key={idx} className="p-4 hover-scale">
-              <div className="flex items-center justify-between">
-                <h2 className="font-semibold text-foreground">{name}</h2>
-                <span className="text-xs text-muted-foreground">Active</span>
-              </div>
-              <p className="text-sm text-muted-foreground mt-1">Influencers: 12 • Budget: $15,000 • Approved: 24/30</p>
-              <div className="mt-3">
-                <Button variant="secondary" size="sm">
-                  <ListChecks className="w-4 h-4 mr-2" /> View Workflow
-                </Button>
-              </div>
-            </Card>
-          ))}
+          {loading ? (
+            <div className="col-span-2 text-center py-8">
+              <p className="text-muted-foreground">Loading campaigns...</p>
+            </div>
+          ) : campaigns.length === 0 ? (
+            <div className="col-span-2 text-center py-8">
+              <p className="text-muted-foreground">No campaigns yet. Create your first campaign!</p>
+            </div>
+          ) : (
+            campaigns.map((campaign) => (
+              <Card key={campaign.id} className="p-4 hover-scale">
+                <div className="flex items-center justify-between mb-2">
+                  <h2 className="font-semibold text-foreground">{campaign.name}</h2>
+                  <span className={`text-xs font-medium capitalize ${getStatusColor(campaign.status)}`}>
+                    {campaign.status}
+                  </span>
+                </div>
+                
+                {campaign.description && (
+                  <p className="text-sm text-muted-foreground mb-3">{campaign.description}</p>
+                )}
+                
+                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                  <span className="flex items-center gap-1">
+                    <DollarSign className="w-3 h-3" />
+                    {formatCurrency(Number(campaign.budget))}
+                  </span>
+                  {campaign.pacs && (
+                    <span className="flex items-center gap-1">
+                      <Users className="w-3 h-3" />
+                      {campaign.pacs.name}
+                    </span>
+                  )}
+                  {campaign.start_date && (
+                    <span className="flex items-center gap-1">
+                      <Calendar className="w-3 h-3" />
+                      {new Date(campaign.start_date).toLocaleDateString()}
+                    </span>
+                  )}
+                </div>
+                
+                <div className="mt-3">
+                  <Button variant="secondary" size="sm">
+                    <ListChecks className="w-4 h-4 mr-2" /> View Workflow
+                  </Button>
+                </div>
+              </Card>
+            ))
+          )}
         </section>
       </main>
     </>
