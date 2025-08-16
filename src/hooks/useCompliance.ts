@@ -45,9 +45,14 @@ export const useCompliance = () => {
 
   // Fetch compliance statistics
   const fetchStats = async () => {
-    if (!user) return;
+    if (!user) {
+      setLoading(false);
+      return;
+    }
 
     try {
+      console.log('Fetching compliance stats for user:', user.id);
+      
       // Get submissions for campaigns owned by current user
       const { data: submissions, error } = await supabase
         .from('content_submissions')
@@ -60,22 +65,32 @@ export const useCompliance = () => {
         `)
         .eq('campaigns.pacs.admin_user_id', user.id);
 
-      if (error) throw error;
+      if (error) {
+        console.error('Error in fetchStats query:', error);
+        throw error;
+      }
+
+      console.log('Submissions found:', submissions?.length || 0);
 
       const total = submissions?.length || 0;
       const compliant = submissions?.filter(s => s.status === 'approved' && s.compliance_checked).length || 0;
       const pending = submissions?.filter(s => s.status === 'pending').length || 0;
       const flagged = submissions?.filter(s => s.status === 'revision_requested').length || 0;
 
-      setStats({
+      const statsData = {
         total_submissions: total,
         compliant,
         pending_review: pending,
         flagged,
         compliance_rate: total > 0 ? Math.round((compliant / total) * 100) : 0
-      });
+      };
+
+      console.log('Calculated stats:', statsData);
+      setStats(statsData);
     } catch (error) {
       console.error('Error fetching compliance stats:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -84,6 +99,8 @@ export const useCompliance = () => {
     if (!user) return;
 
     try {
+      console.log('Fetching pending items for user:', user.id);
+      
       const { data: submissions, error } = await supabase
         .from('content_submissions')
         .select(`
@@ -102,7 +119,12 @@ export const useCompliance = () => {
         .order('created_at', { ascending: false })
         .limit(20);
 
-      if (error) throw error;
+      if (error) {
+        console.error('Error in fetchPendingItems query:', error);
+        throw error;
+      }
+
+      console.log('Pending submissions found:', submissions?.length || 0);
 
       const items: ComplianceItem[] = (submissions || []).map(sub => ({
         id: sub.id,
@@ -246,10 +268,20 @@ export const useCompliance = () => {
   };
 
   useEffect(() => {
-    if (user) {
-      fetchStats();
-      fetchPendingItems();
-    }
+    const loadData = async () => {
+      if (user) {
+        console.log('User authenticated, loading compliance data for:', user.email);
+        setLoading(true);
+        await Promise.all([fetchStats(), fetchPendingItems()]);
+      } else {
+        console.log('No user authenticated');
+        setLoading(false);
+        setStats(null);
+        setPendingItems([]);
+      }
+    };
+
+    loadData();
   }, [user]);
 
   return {
