@@ -6,6 +6,7 @@ import PatrioticBanner from "@/components/PatrioticBanner";
 import votersHero from "@/assets/voters-at-polls.webp";
 import BackedByStrip from "@/components/BackedByStrip";
 import CampaignModal from "@/components/CampaignModal";
+import CampaignDetailsModal from "@/components/CampaignDetailsModal";
 import { useCampaigns } from "@/hooks/useCampaigns";
 
 const Campaigns = () => {
@@ -105,9 +106,11 @@ const Campaigns = () => {
                 </div>
                 
                 <div className="mt-3">
-                  <Button variant="secondary" size="sm">
-                    <ListChecks className="w-4 h-4 mr-2" /> View Workflow
-                  </Button>
+                  <CampaignDetailsModal campaign={campaign}>
+                    <Button variant="secondary" size="sm">
+                      <ListChecks className="w-4 h-4 mr-2" /> View Details
+                    </Button>
+                  </CampaignDetailsModal>
                 </div>
               </Card>
             ))

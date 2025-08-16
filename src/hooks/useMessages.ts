@@ -61,22 +61,54 @@ export const useMessages = () => {
       }
 
       try {
-        const { data, error } = await supabase
+        // Fetch conversations
+        const { data: convData, error: convError } = await supabase
           .from('conversations')
-          .select(`
-            *,
-            campaigns!inner(name),
-            pac_profile:profiles!conversations_pac_user_id_fkey(display_name, avatar_url),
-            influencer_profile:profiles!conversations_influencer_user_id_fkey(display_name, avatar_url)
-          `)
+          .select('*')
           .or(`pac_user_id.eq.${user.id},influencer_user_id.eq.${user.id}`)
           .order('last_message_at', { ascending: false });
 
-        if (error) {
-          console.error('Error fetching conversations:', error);
-        } else {
-          setConversations(data || []);
+        if (convError) {
+          console.error('Error fetching conversations:', convError);
+          setLoading(false);
+          return;
         }
+
+        // Fetch related data
+        const conversations = convData || [];
+        const enrichedConversations = await Promise.all(
+          conversations.map(async (conv) => {
+            // Fetch campaign name
+            const { data: campaignData } = await supabase
+              .from('campaigns')
+              .select('name')
+              .eq('id', conv.campaign_id)
+              .single();
+
+            // Fetch PAC profile
+            const { data: pacProfile } = await supabase
+              .from('profiles')
+              .select('display_name, avatar_url')
+              .eq('user_id', conv.pac_user_id)
+              .single();
+
+            // Fetch influencer profile
+            const { data: influencerProfile } = await supabase
+              .from('profiles')
+              .select('display_name, avatar_url')
+              .eq('user_id', conv.influencer_user_id)
+              .single();
+
+            return {
+              ...conv,
+              campaign: campaignData,
+              pac_profile: pacProfile,
+              influencer_profile: influencerProfile,
+            };
+          })
+        );
+
+        setConversations(enrichedConversations);
       } catch (error) {
         console.error('Error fetching conversations:', error);
       } finally {
@@ -99,13 +131,10 @@ export const useMessages = () => {
       if (!conversation) return;
 
       try {
-        const { data, error } = await supabase
+        // Fetch messages for the conversation
+        const { data: msgData, error } = await supabase
           .from('messages')
-          .select(`
-            *,
-            sender_profile:profiles!messages_sender_id_fkey(display_name, avatar_url),
-            recipient_profile:profiles!messages_recipient_id_fkey(display_name, avatar_url)
-          `)
+          .select('*')
           .eq('campaign_id', conversation.campaign_id)
           .or(`sender_id.eq.${conversation.pac_user_id},recipient_id.eq.${conversation.pac_user_id}`)
           .or(`sender_id.eq.${conversation.influencer_user_id},recipient_id.eq.${conversation.influencer_user_id}`)
@@ -113,9 +142,33 @@ export const useMessages = () => {
 
         if (error) {
           console.error('Error fetching messages:', error);
-        } else {
-          setMessages(data || []);
+          return;
         }
+
+        // Enrich messages with profile data
+        const enrichedMessages = await Promise.all(
+          (msgData || []).map(async (msg) => {
+            const { data: senderProfile } = await supabase
+              .from('profiles')
+              .select('display_name, avatar_url')
+              .eq('user_id', msg.sender_id)
+              .single();
+
+            const { data: recipientProfile } = await supabase
+              .from('profiles')
+              .select('display_name, avatar_url')
+              .eq('user_id', msg.recipient_id)
+              .single();
+
+            return {
+              ...msg,
+              sender_profile: senderProfile,
+              recipient_profile: recipientProfile,
+            };
+          })
+        );
+
+        setMessages(enrichedMessages);
       } catch (error) {
         console.error('Error fetching messages:', error);
       }
