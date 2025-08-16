@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      audit_logs: {
+        Row: {
+          action: string
+          created_at: string
+          details: Json | null
+          id: string
+          target_id: string
+          target_type: string
+          user_email: string | null
+          user_id: string
+        }
+        Insert: {
+          action: string
+          created_at?: string
+          details?: Json | null
+          id?: string
+          target_id: string
+          target_type: string
+          user_email?: string | null
+          user_id: string
+        }
+        Update: {
+          action?: string
+          created_at?: string
+          details?: Json | null
+          id?: string
+          target_id?: string
+          target_type?: string
+          user_email?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       campaign_analytics: {
         Row: {
           campaign_id: string
@@ -174,6 +207,84 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      compliance_reports: {
+        Row: {
+          campaign_id: string | null
+          created_at: string
+          date_range_end: string | null
+          date_range_start: string | null
+          file_url: string | null
+          generated_by: string
+          id: string
+          report_data: Json
+          report_type: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          campaign_id?: string | null
+          created_at?: string
+          date_range_end?: string | null
+          date_range_start?: string | null
+          file_url?: string | null
+          generated_by: string
+          id?: string
+          report_data?: Json
+          report_type: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          campaign_id?: string | null
+          created_at?: string
+          date_range_end?: string | null
+          date_range_start?: string | null
+          file_url?: string | null
+          generated_by?: string
+          id?: string
+          report_data?: Json
+          report_type?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      compliance_rules: {
+        Row: {
+          created_at: string
+          criteria: Json
+          description: string | null
+          id: string
+          is_active: boolean
+          name: string
+          rule_type: string
+          severity: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          criteria?: Json
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          name: string
+          rule_type: string
+          severity?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          criteria?: Json
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          name?: string
+          rule_type?: string
+          severity?: string
+          updated_at?: string
+        }
+        Relationships: []
       }
       content_submissions: {
         Row: {
@@ -552,6 +663,15 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      create_audit_log_entry: {
+        Args: {
+          p_action: string
+          p_details?: Json
+          p_target_id: string
+          p_target_type: string
+        }
+        Returns: string
+      }
       get_diverse_profile_data: {
         Args: { influencer_uuid: string }
         Returns: Json

@@ -8,6 +8,7 @@ import { Shield, ClipboardList, Download, FileText, AlertTriangle, TrendingUp } 
 import PatrioticBanner from "@/components/PatrioticBanner";
 import ComplianceOverview from "@/components/ComplianceOverview";
 import ComplianceQueue from "@/components/ComplianceQueue";
+import AuditTrail from "@/components/AuditTrail";
 import { useCompliance } from "@/hooks/useCompliance";
 import { toast } from "sonner";
 import capitolHero from "@/assets/capitol-hero.jpg";
@@ -16,6 +17,7 @@ const Compliance = () => {
   const {
     stats,
     pendingItems,
+    auditLog,
     loading,
     approveSubmission,
     requestRevision,
@@ -149,23 +151,7 @@ const Compliance = () => {
 
               {/* Audit Trail Tab */}
               <TabsContent value="audit">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Shield className="w-5 h-5" />
-                      Audit Trail
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div className="text-center py-8 text-muted-foreground">
-                        <ClipboardList className="w-12 h-12 mx-auto mb-4" />
-                        <p className="text-lg font-medium mb-2">Audit Trail Coming Soon</p>
-                        <p>Complete audit logging and tracking will be available in the next update.</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                <AuditTrail auditLog={auditLog} loading={loading} />
               </TabsContent>
 
               {/* Reports Tab */}
