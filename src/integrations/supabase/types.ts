@@ -14,7 +14,429 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      campaign_analytics: {
+        Row: {
+          campaign_id: string
+          clicks: number | null
+          comments: number | null
+          created_at: string
+          date_recorded: string
+          engagement_count: number | null
+          id: string
+          impressions: number | null
+          platform: string
+          shares: number | null
+          submission_id: string | null
+        }
+        Insert: {
+          campaign_id: string
+          clicks?: number | null
+          comments?: number | null
+          created_at?: string
+          date_recorded?: string
+          engagement_count?: number | null
+          id?: string
+          impressions?: number | null
+          platform: string
+          shares?: number | null
+          submission_id?: string | null
+        }
+        Update: {
+          campaign_id?: string
+          clicks?: number | null
+          comments?: number | null
+          created_at?: string
+          date_recorded?: string
+          engagement_count?: number | null
+          id?: string
+          impressions?: number | null
+          platform?: string
+          shares?: number | null
+          submission_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "campaign_analytics_campaign_id_fkey"
+            columns: ["campaign_id"]
+            isOneToOne: false
+            referencedRelation: "campaigns"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "campaign_analytics_submission_id_fkey"
+            columns: ["submission_id"]
+            isOneToOne: false
+            referencedRelation: "content_submissions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      campaign_invitations: {
+        Row: {
+          campaign_id: string
+          created_at: string
+          id: string
+          influencer_id: string
+          message: string | null
+          offered_amount: number | null
+          status: string | null
+          terms: string | null
+          updated_at: string
+        }
+        Insert: {
+          campaign_id: string
+          created_at?: string
+          id?: string
+          influencer_id: string
+          message?: string | null
+          offered_amount?: number | null
+          status?: string | null
+          terms?: string | null
+          updated_at?: string
+        }
+        Update: {
+          campaign_id?: string
+          created_at?: string
+          id?: string
+          influencer_id?: string
+          message?: string | null
+          offered_amount?: number | null
+          status?: string | null
+          terms?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "campaign_invitations_campaign_id_fkey"
+            columns: ["campaign_id"]
+            isOneToOne: false
+            referencedRelation: "campaigns"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "campaign_invitations_influencer_id_fkey"
+            columns: ["influencer_id"]
+            isOneToOne: false
+            referencedRelation: "influencers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      campaigns: {
+        Row: {
+          budget: number
+          compliance_notes: string | null
+          created_at: string
+          description: string | null
+          end_date: string | null
+          id: string
+          name: string
+          pac_id: string
+          start_date: string | null
+          status: string | null
+          target_demographics: Json | null
+          updated_at: string
+        }
+        Insert: {
+          budget?: number
+          compliance_notes?: string | null
+          created_at?: string
+          description?: string | null
+          end_date?: string | null
+          id?: string
+          name: string
+          pac_id: string
+          start_date?: string | null
+          status?: string | null
+          target_demographics?: Json | null
+          updated_at?: string
+        }
+        Update: {
+          budget?: number
+          compliance_notes?: string | null
+          created_at?: string
+          description?: string | null
+          end_date?: string | null
+          id?: string
+          name?: string
+          pac_id?: string
+          start_date?: string | null
+          status?: string | null
+          target_demographics?: Json | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "campaigns_pac_id_fkey"
+            columns: ["pac_id"]
+            isOneToOne: false
+            referencedRelation: "pacs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      content_submissions: {
+        Row: {
+          campaign_id: string
+          caption: string | null
+          compliance_checked: boolean | null
+          content_type: string
+          content_url: string | null
+          created_at: string
+          fec_disclosure: string | null
+          id: string
+          influencer_id: string
+          platform: string
+          review_notes: string | null
+          status: string | null
+          submission_date: string | null
+          updated_at: string
+        }
+        Insert: {
+          campaign_id: string
+          caption?: string | null
+          compliance_checked?: boolean | null
+          content_type: string
+          content_url?: string | null
+          created_at?: string
+          fec_disclosure?: string | null
+          id?: string
+          influencer_id: string
+          platform: string
+          review_notes?: string | null
+          status?: string | null
+          submission_date?: string | null
+          updated_at?: string
+        }
+        Update: {
+          campaign_id?: string
+          caption?: string | null
+          compliance_checked?: boolean | null
+          content_type?: string
+          content_url?: string | null
+          created_at?: string
+          fec_disclosure?: string | null
+          id?: string
+          influencer_id?: string
+          platform?: string
+          review_notes?: string | null
+          status?: string | null
+          submission_date?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "content_submissions_campaign_id_fkey"
+            columns: ["campaign_id"]
+            isOneToOne: false
+            referencedRelation: "campaigns"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "content_submissions_influencer_id_fkey"
+            columns: ["influencer_id"]
+            isOneToOne: false
+            referencedRelation: "influencers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      influencers: {
+        Row: {
+          availability_status: string | null
+          content_categories: string[] | null
+          created_at: string
+          engagement_rates: Json
+          follower_counts: Json
+          id: string
+          platforms: Json
+          political_affiliations: string[] | null
+          rate_per_post: number | null
+          updated_at: string
+          user_id: string
+          verification_status: string | null
+        }
+        Insert: {
+          availability_status?: string | null
+          content_categories?: string[] | null
+          created_at?: string
+          engagement_rates?: Json
+          follower_counts?: Json
+          id?: string
+          platforms?: Json
+          political_affiliations?: string[] | null
+          rate_per_post?: number | null
+          updated_at?: string
+          user_id: string
+          verification_status?: string | null
+        }
+        Update: {
+          availability_status?: string | null
+          content_categories?: string[] | null
+          created_at?: string
+          engagement_rates?: Json
+          follower_counts?: Json
+          id?: string
+          platforms?: Json
+          political_affiliations?: string[] | null
+          rate_per_post?: number | null
+          updated_at?: string
+          user_id?: string
+          verification_status?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "influencers_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
+      pacs: {
+        Row: {
+          admin_user_id: string
+          campaign_budget: number | null
+          created_at: string
+          description: string | null
+          fec_id: string | null
+          id: string
+          name: string
+          status: string | null
+          updated_at: string
+        }
+        Insert: {
+          admin_user_id: string
+          campaign_budget?: number | null
+          created_at?: string
+          description?: string | null
+          fec_id?: string | null
+          id?: string
+          name: string
+          status?: string | null
+          updated_at?: string
+        }
+        Update: {
+          admin_user_id?: string
+          campaign_budget?: number | null
+          created_at?: string
+          description?: string | null
+          fec_id?: string | null
+          id?: string
+          name?: string
+          status?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pacs_admin_user_id_fkey"
+            columns: ["admin_user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
+      payments: {
+        Row: {
+          amount: number
+          campaign_id: string
+          created_at: string
+          id: string
+          influencer_id: string | null
+          notes: string | null
+          payment_method: string | null
+          payment_type: string
+          status: string | null
+          transaction_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          amount: number
+          campaign_id: string
+          created_at?: string
+          id?: string
+          influencer_id?: string | null
+          notes?: string | null
+          payment_method?: string | null
+          payment_type: string
+          status?: string | null
+          transaction_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          amount?: number
+          campaign_id?: string
+          created_at?: string
+          id?: string
+          influencer_id?: string | null
+          notes?: string | null
+          payment_method?: string | null
+          payment_type?: string
+          status?: string | null
+          transaction_id?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "payments_campaign_id_fkey"
+            columns: ["campaign_id"]
+            isOneToOne: false
+            referencedRelation: "campaigns"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "payments_influencer_id_fkey"
+            columns: ["influencer_id"]
+            isOneToOne: false
+            referencedRelation: "influencers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          bio: string | null
+          created_at: string
+          display_name: string | null
+          email: string | null
+          id: string
+          location: string | null
+          political_party: string | null
+          role: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          id?: string
+          location?: string | null
+          political_party?: string | null
+          role?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          id?: string
+          location?: string | null
+          political_party?: string | null
+          role?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
