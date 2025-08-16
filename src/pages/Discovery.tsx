@@ -17,7 +17,7 @@ const Discovery = () => {
   const [selectedCampaign, setSelectedCampaign] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState('');
   const [locationFilter, setLocationFilter] = useState('');
-  const [partyFilter, setPartyFilter] = useState('');
+  const [partyFilter, setPartyFilter] = useState('all');
 
   const filteredInfluencers = influencers.filter(influencer => {
     const matchesSearch = !searchQuery || 
@@ -27,7 +27,7 @@ const Discovery = () => {
     const matchesLocation = !locationFilter || 
       influencer.profiles?.location?.toLowerCase().includes(locationFilter.toLowerCase());
     
-    const matchesParty = !partyFilter || 
+    const matchesParty = !partyFilter || partyFilter === 'all' || 
       influencer.profiles?.political_party?.toLowerCase() === partyFilter.toLowerCase();
 
     return matchesSearch && matchesLocation && matchesParty;
@@ -128,7 +128,7 @@ const Discovery = () => {
                   <SelectValue placeholder="All parties" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All parties</SelectItem>
+                  <SelectItem value="all">All parties</SelectItem>
                   <SelectItem value="republican">Republican</SelectItem>
                   <SelectItem value="democrat">Democrat</SelectItem>
                   <SelectItem value="independent">Independent</SelectItem>
@@ -142,7 +142,7 @@ const Discovery = () => {
                 onClick={() => {
                   setSearchQuery('');
                   setLocationFilter('');
-                  setPartyFilter('');
+                  setPartyFilter('all');
                 }}
                 className="w-full"
               >
