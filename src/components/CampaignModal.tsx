@@ -34,18 +34,30 @@ const CampaignModal = ({ onCreateCampaign }: CampaignModalProps) => {
     e.preventDefault();
     if (!formData.name || !formData.pac_id) return;
 
+    // Validate budget
+    const budgetValue = formData.budget ? Number(formData.budget) : undefined;
+    if (budgetValue && (budgetValue < 0 || budgetValue > 999999999)) {
+      toast({
+        title: "Invalid Budget",
+        description: "Budget must be between $0 and $999,999,999",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setLoading(true);
     const { error } = await onCreateCampaign({
       name: formData.name,
       pac_id: formData.pac_id,
       description: formData.description || undefined,
-      budget: formData.budget ? Number(formData.budget) : undefined
+      budget: budgetValue
     });
 
     if (error) {
+      console.error('Campaign creation error:', error);
       toast({
         title: "Error",
-        description: "Failed to create campaign",
+        description: error.message || "Failed to create campaign",
         variant: "destructive"
       });
     } else {
@@ -66,10 +78,13 @@ const CampaignModal = ({ onCreateCampaign }: CampaignModalProps) => {
           <FolderPlus className="w-4 h-4 mr-2" /> New Campaign
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px]" aria-describedby="campaign-description">
         <DialogHeader>
           <DialogTitle>Create New Campaign</DialogTitle>
         </DialogHeader>
+        <p id="campaign-description" className="sr-only">
+          Create a new political campaign with name, PAC selection, description, and budget.
+        </p>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="name">Campaign Name</Label>

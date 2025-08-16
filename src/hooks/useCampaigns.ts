@@ -65,9 +65,20 @@ export const useCampaigns = () => {
     if (!user) return { error: new Error('No user') };
 
     try {
+      // Debug logging
+      console.log('Creating campaign with data:', campaignData);
+      
+      // Ensure budget is reasonable (max 1 billion)
+      const sanitizedData = {
+        ...campaignData,
+        budget: campaignData.budget && campaignData.budget > 1000000000 ? 1000000000 : campaignData.budget
+      };
+      
+      console.log('Sanitized data:', sanitizedData);
+
       const { data, error } = await supabase
         .from('campaigns')
-        .insert([campaignData])
+        .insert([sanitizedData])
         .select(`
           *,
           pacs (
@@ -78,12 +89,14 @@ export const useCampaigns = () => {
         .single();
 
       if (error) {
+        console.error('Supabase error:', error);
         return { error };
       }
 
       setCampaigns(prev => [data, ...prev]);
       return { data, error: null };
     } catch (error) {
+      console.error('Caught error:', error);
       return { error: error as Error };
     }
   };
