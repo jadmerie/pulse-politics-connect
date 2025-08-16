@@ -48,7 +48,34 @@ export const useInfluencers = () => {
         if (error) {
           console.error('Error fetching influencers:', error);
         } else {
-          setInfluencers(data || []);
+          // Enhance each influencer with diverse profile data
+          const enhancedInfluencers = await Promise.all(
+            (data || []).map(async (influencer) => {
+              // Get diverse profile data based on influencer ID
+              const { data: profileData } = await supabase
+                .rpc('get_diverse_profile_data', { influencer_uuid: influencer.id });
+              
+              // Parse the JSON profile data and ensure it matches our interface
+              let enhancedProfile = influencer.profiles;
+              if (profileData && typeof profileData === 'object') {
+                const profile = profileData as any;
+                enhancedProfile = {
+                  display_name: profile.display_name || null,
+                  location: profile.location || null,
+                  avatar_url: profile.avatar_url || null,
+                  bio: profile.bio || null,
+                  political_party: profile.political_party || null,
+                };
+              }
+              
+              return {
+                ...influencer,
+                profiles: enhancedProfile
+              } as Influencer;
+            })
+          );
+          
+          setInfluencers(enhancedInfluencers);
         }
       } catch (error) {
         console.error('Error fetching influencers:', error);
