@@ -1,10 +1,22 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogOut } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
+import { toast } from "sonner";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    const { error } = await signOut();
+    if (error) {
+      toast.error('Failed to sign out');
+    } else {
+      toast.success('Signed out successfully');
+    }
+  };
 
   return (
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-sm border-b border-border z-50">
@@ -50,16 +62,30 @@ const Navigation = () => {
           </div>
           
           <div className="hidden md:flex items-center space-x-4">
-            <Link to="/profiles">
-              <Button variant="ghost">
-                Sign In
-              </Button>
-            </Link>
-            <Link to="/campaigns">
-              <Button variant="cta">
-                Launch Campaign
-              </Button>
-            </Link>
+            {user ? (
+              <>
+                <span className="text-sm text-muted-foreground">
+                  Welcome, {user.email?.split('@')[0]}
+                </span>
+                <Button variant="ghost" onClick={handleSignOut}>
+                  <LogOut className="w-4 h-4 mr-2" />
+                  Sign Out
+                </Button>
+              </>
+            ) : (
+              <>
+                <Link to="/auth">
+                  <Button variant="ghost">
+                    Sign In
+                  </Button>
+                </Link>
+                <Link to="/campaigns">
+                  <Button variant="cta">
+                    Launch Campaign
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
           
           {/* Mobile menu button */}
@@ -99,16 +125,30 @@ const Navigation = () => {
                 Profiles
               </Link>
               <div className="flex flex-col space-y-2 pt-4">
-                <Link to="/profiles" className="w-full">
-                  <Button variant="ghost" className="justify-start w-full">
-                    Sign In
-                  </Button>
-                </Link>
-                <Link to="/campaigns" className="w-full">
-                  <Button variant="professional" className="justify-start w-full">
-                    Get Started
-                  </Button>
-                </Link>
+                {user ? (
+                  <>
+                    <div className="text-sm text-muted-foreground px-3 py-2">
+                      Welcome, {user.email?.split('@')[0]}
+                    </div>
+                    <Button variant="ghost" className="justify-start w-full" onClick={handleSignOut}>
+                      <LogOut className="w-4 h-4 mr-2" />
+                      Sign Out
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/auth" className="w-full">
+                      <Button variant="ghost" className="justify-start w-full">
+                        Sign In
+                      </Button>
+                    </Link>
+                    <Link to="/campaigns" className="w-full">
+                      <Button variant="professional" className="justify-start w-full">
+                        Get Started
+                      </Button>
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </div>

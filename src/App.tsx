@@ -14,6 +14,8 @@ import Compliance from "./pages/Compliance";
 import Analytics from "./pages/Analytics";
 import Payments from "./pages/Payments";
 import Profiles from "./pages/Profiles";
+import Auth from "./pages/Auth";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -26,13 +28,14 @@ const App = () => (
         <Navigation />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/discovery" element={<Discovery />} />
-          <Route path="/campaigns" element={<Campaigns />} />
-          <Route path="/submissions" element={<Submissions />} />
-          <Route path="/compliance" element={<Compliance />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/payments" element={<Payments />} />
-          <Route path="/profiles" element={<Profiles />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/discovery" element={<ProtectedRoute><Discovery /></ProtectedRoute>} />
+          <Route path="/campaigns" element={<ProtectedRoute><Campaigns /></ProtectedRoute>} />
+          <Route path="/submissions" element={<ProtectedRoute><Submissions /></ProtectedRoute>} />
+          <Route path="/compliance" element={<ProtectedRoute><Compliance /></ProtectedRoute>} />
+          <Route path="/analytics" element={<ProtectedRoute><Analytics /></ProtectedRoute>} />
+          <Route path="/payments" element={<ProtectedRoute><Payments /></ProtectedRoute>} />
+          <Route path="/profiles" element={<ProtectedRoute><Profiles /></ProtectedRoute>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
