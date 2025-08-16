@@ -241,6 +241,36 @@ export type Database = {
           },
         ]
       }
+      conversations: {
+        Row: {
+          campaign_id: string
+          created_at: string
+          id: string
+          influencer_user_id: string
+          last_message_at: string | null
+          pac_user_id: string
+          updated_at: string
+        }
+        Insert: {
+          campaign_id: string
+          created_at?: string
+          id?: string
+          influencer_user_id: string
+          last_message_at?: string | null
+          pac_user_id: string
+          updated_at?: string
+        }
+        Update: {
+          campaign_id?: string
+          created_at?: string
+          id?: string
+          influencer_user_id?: string
+          last_message_at?: string | null
+          pac_user_id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       influencers: {
         Row: {
           availability_status: string | null
@@ -293,6 +323,42 @@ export type Database = {
             referencedColumns: ["user_id"]
           },
         ]
+      }
+      messages: {
+        Row: {
+          campaign_id: string
+          content: string
+          created_at: string
+          id: string
+          read_at: string | null
+          recipient_id: string
+          sender_id: string
+          subject: string | null
+          updated_at: string
+        }
+        Insert: {
+          campaign_id: string
+          content: string
+          created_at?: string
+          id?: string
+          read_at?: string | null
+          recipient_id: string
+          sender_id: string
+          subject?: string | null
+          updated_at?: string
+        }
+        Update: {
+          campaign_id?: string
+          content?: string
+          created_at?: string
+          id?: string
+          read_at?: string | null
+          recipient_id?: string
+          sender_id?: string
+          subject?: string | null
+          updated_at?: string
+        }
+        Relationships: []
       }
       pacs: {
         Row: {
